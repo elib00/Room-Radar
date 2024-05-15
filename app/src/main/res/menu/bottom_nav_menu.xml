@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/home_icon_name"
+        android:icon="@drawable/home_icon"
+        android:id="@+id/home"/>
+
+    <item android:title="@string/dashboard_icon_name"
+        android:icon="@drawable/dashboard_icon"
+        android:id="@+id/dashboard"/>
+
+    <item android:title="@string/notifications_icon_name"
+        android:icon="@drawable/notifications_icon"
+        android:id="@+id/notifications"/>
+
+    <item android:title="@string/profile_icon_name"
+        android:icon="@drawable/profile_icon"
+        android:id="@+id/profile"/>
+</menu>
