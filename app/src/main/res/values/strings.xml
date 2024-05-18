@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Room Radar</string>
     <string name="home_icon_name">Home</string>
-    <string name="dashboard_icon_name">Dashboard</string>
+    <string name="maps_icon_name">Maps</string>
     <string name="notifications_icon_name">Notifications</string>
     <string name="profile_icon_name">Profile</string>
 </resources>
