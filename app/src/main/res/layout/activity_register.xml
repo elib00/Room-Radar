@@ -10,20 +10,22 @@
     tools:context=".RegisterActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="247dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="200dp"
-                android:layout_height="300dp"
+                android:layout_width="267dp"
+                android:layout_height="206dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/logo" />
         </LinearLayout>
@@ -102,6 +104,14 @@
             android:backgroundTint="#0B1650"
             android:gravity="center"
             android:text="Sign Up" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="69dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="662dp"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
