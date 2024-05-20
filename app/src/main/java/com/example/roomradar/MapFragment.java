@@ -1,6 +1,7 @@
 package com.example.roomradar;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -144,6 +146,15 @@ public class MapFragment extends Fragment {
                         if(location != null){
                             LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
                             MarkerOptions markerOptions = new MarkerOptions().position(currentLocation).title("Current location");
+
+                            CircleOptions circleOptions = new CircleOptions()
+                                    .center(currentLocation)
+                                    .radius(3000) // 3 kilometers in meters
+                                    .strokeWidth(2)
+                                    .strokeColor(Color.RED)
+                                    .fillColor(Color.parseColor("#30ff0000")); // Transparent red color with 30% opacity
+                            googleMap.addCircle(circleOptions);
+
                             googleMap.addMarker(markerOptions);
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15f));
                         }else{
