@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseManager.registerUser(LoginActivity.this, auth, email.getText().toString(), password.getText().toString());
+                DatabaseManager.validateUser(LoginActivity.this, auth, email.getText().toString(), password.getText().toString());
             }
         });
     }

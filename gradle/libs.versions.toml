@@ -14,6 +14,7 @@ dexter = "6.2.3"
 googleGmsGoogleServices = "4.4.1"
 firebaseFirestore = "25.0.0"
 firebaseAuth = "23.0.0"
+firebaseDatabase = "21.0.0"
 
 
 [libraries]
@@ -29,6 +30,7 @@ play-services-location = { group = "com.google.android.gms", name = "play-servic
 dexter = { group = "com.karumi", name = "dexter", version.ref = "dexter" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 
 [plugins]
