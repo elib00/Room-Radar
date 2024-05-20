@@ -4,4 +4,5 @@
     <string name="maps_icon_name">Maps</string>
     <string name="notifications_icon_name">Notifications</string>
     <string name="profile_icon_name">Profile</string>
+    <string name="email_text">Email</string>
 </resources>
