@@ -17,7 +17,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class DatabaseManager {
@@ -46,6 +50,19 @@ public class DatabaseManager {
                         Toast.makeText(activity, "Login Successful. ", Toast.LENGTH_SHORT).show();
 
                         String userUID = Objects.requireNonNull(authResult.getUser()).getUid();
+                        System.out.println(userUID);
+
+//                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//                        CollectionReference userProfileCollection = db.collection("userprofile");
+
+//                        HashMap<String, String> user = new HashMap<>();
+//                        user.put("firstname", "Joshua");
+//                        user.put("lastname", "Napinas");
+//
+//                        userProfileCollection.document(userUID).set(user);
+
+
 
                         context.startActivity(intent);
                         activity.finish();
