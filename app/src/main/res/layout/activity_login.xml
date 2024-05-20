@@ -28,6 +28,7 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailLoginInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/email_icon"
@@ -44,6 +45,7 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordLoginInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/lock_icon"
@@ -55,7 +57,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/forgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -64,7 +66,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
