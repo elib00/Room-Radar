@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.roomradar.Entities.BoardingHouse;
 import com.example.roomradar.Entities.User;
+import com.example.roomradar.LoginActivity;
 import com.example.roomradar.MainActivity;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,21 +47,29 @@ import java.util.Objects;
 
 public class DatabaseManager {
 
+    public static FirebaseAuth auth = FirebaseAuth.getInstance();
+    public static FirebaseStorage storage = FirebaseStorage.getInstance();
+    public static FirebaseFirestore database = FirebaseFirestore.getInstance();
+    public static CollectionReference boardingHousesCollection = database.collection("boardinghouses");
+    public static CollectionReference userProfileCollection = database.collection("userprofile");
+
     private static final int REQUEST_STORAGE_PERMISSION = 100;
 
-    public static void registerUser(Activity activity, FirebaseAuth auth, String email, String password) {
+    public static void registerUser(Activity activity, String email, String password) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            if (user != null) {
-                                String uid = user.getUid();
 
-                            } else {
-                                Toast.makeText(activity, "Failed to get user UID", Toast.LENGTH_SHORT).show();
-                            }
+                            Context context = activity.getBaseContext();
+                            Intent intent = new Intent(context, LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            Toast.makeText(activity, "Register Successful. ", Toast.LENGTH_SHORT).show();
+
+                            context.startActivity(intent);
+                            activity.finish();
                             Toast.makeText(activity, "User successfully registered", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "User successfully registered", Toast.LENGTH_SHORT).show();
@@ -69,7 +78,7 @@ public class DatabaseManager {
                 });
     }
 
-    public static void validateUser(Activity activity, FirebaseAuth auth, String email, String password) {
+    public static void validateUser(Activity activity, String email, String password) {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -80,37 +89,9 @@ public class DatabaseManager {
                         Toast.makeText(activity, "Login Successful. ", Toast.LENGTH_SHORT).show();
 
                         String userUID = Objects.requireNonNull(authResult.getUser()).getUid();
-                        System.out.println(userUID);
 
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-                        CollectionReference userProfileCollection = db.collection("userprofile");
-
-                        //USERPROFILE
-                        User user = new User("Zhazted", "Valles", true, "default");
-                        userProfileCollection.document(userUID).set(user);
-
-                        //BOARDINGHOUSES
-                        BoardingHouse bh = new BoardingHouse.Builder().setPropertyName("Rizwill Apartelle").setAddress("Cebu", "Bogo", "Poblacion", "Tres De Abril").setLandlordID(userUID).build();
-
-                        CollectionReference boardingHousesCollection = db.collection("boardinghouses");
-                        boardingHousesCollection.document("bh1").set(bh);
-
-                        //STORAGE CREATE FOLDER
-                        createFolderToCloud(activity, userUID);
-
-                        //STORAGE UPLOAD PICTURE TO FOLDER
-                        if (hasStoragePermission(activity)) {
-                            List<String> galleryImagePaths = getImagePathsFromGallery(activity);
-                            if (!galleryImagePaths.isEmpty()) {
-                                uploadImageToFolder(activity, userUID, "sample", galleryImagePaths.get(0));
-                            } else {
-                                Toast.makeText(activity, "No images found in gallery", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            requestStoragePermission(activity);
-                        }
-
+                        //TO DO
+                        //QUERY USING UID IF LANDLORD OR TENANT
 
                         context.startActivity(intent);
                         activity.finish();
@@ -132,8 +113,7 @@ public class DatabaseManager {
         ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_STORAGE_PERMISSION);
     }
 
-    public static void createFolderToCloud(Activity activity, String userUID) {
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+    private static void createFolderToCloud(Activity activity, String userUID) {
         StorageReference folderRef = storage.getReference().child(userUID);
 
         folderRef.putBytes(new byte[0])
@@ -175,4 +155,6 @@ public class DatabaseManager {
         }
         return imagePaths;
     }
+
+
 }
