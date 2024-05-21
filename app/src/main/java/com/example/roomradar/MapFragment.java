@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -51,6 +52,7 @@ public class MapFragment extends Fragment {
 
     private FusedLocationProviderClient fusedLocationProviderClient;
     private SupportMapFragment supportMapFragment;
+    private Circle circle;
 
     public MapFragment() {
         // Required empty public constructor
@@ -152,8 +154,14 @@ public class MapFragment extends Fragment {
                                     .radius(3000) // 3 kilometers in meters
                                     .strokeWidth(2)
                                     .strokeColor(Color.RED)
-                                    .fillColor(Color.parseColor("#30ff0000")); // Transparent red color with 30% opacity
-                            googleMap.addCircle(circleOptions);
+                                    .fillColor(Color.parseColor("#30ff0000")); // Transparent red color with 30% opacity\\
+
+                            //to ensure that the circles do not lay on top of each other
+                            if (circle != null) {
+                                circle.remove();
+                            }
+
+                            circle = googleMap.addCircle(circleOptions);
 
                             googleMap.addMarker(markerOptions);
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15f));
