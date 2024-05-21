@@ -1,6 +1,10 @@
 package com.example.roomradar;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,12 +16,16 @@ import com.example.roomradar.Database.DatabaseManager;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText password;
     private TextInputEditText email;
     private TextView forgotPassword;
     private Button login;
     private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
         setFirebaseAuth();
         initializeView();
+
     }
 
     private void initializeView(){
@@ -54,4 +63,6 @@ public class LoginActivity extends AppCompatActivity {
     private void setFirebaseAuth(){
         auth = FirebaseAuth.getInstance();
     }
+
+
 }

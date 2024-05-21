@@ -16,7 +16,7 @@ public class BoardingHouse {
     public HashMap<String, Boolean> amenities;
     public boolean allowPets;
     public String mainPhoto;
-    public String[] bedroomPhotos;
+    public String bedroomPhotos;
     public String description;
     public String rules;
     public float monthlyRate;
@@ -29,6 +29,8 @@ public class BoardingHouse {
 
         public Builder() {
             boardingHouse = new BoardingHouse();
+
+            //DEFAULT VALUES
             boardingHouse.landlordID = "default";
             boardingHouse.propertyName = "default";
             boardingHouse.location = new GeoPoint(0,0);
@@ -41,7 +43,7 @@ public class BoardingHouse {
             boardingHouse.amenities = new HashMap<>();
             boardingHouse.allowPets = false;
             boardingHouse.mainPhoto = "defaultPath";
-            boardingHouse.bedroomPhotos = new String[]{"defaultPath1", "defaultPath2"};
+            boardingHouse.bedroomPhotos = "defaultPath";
             boardingHouse.description = "default";
             boardingHouse.rules = "default";
             boardingHouse.monthlyRate = 0;
@@ -114,7 +116,7 @@ public class BoardingHouse {
             return this;
         }
 
-        public Builder setBedroomPhotos(String[] bedroomPhotos){
+        public Builder setBedroomPhotos(String bedroomPhotos){
             boardingHouse.bedroomPhotos = bedroomPhotos;
             return this;
         }
