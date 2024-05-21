@@ -14,7 +14,7 @@
         android:layout_height="54dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:src="@drawable/Balay" />
+        android:src="@drawable/logo_only" />
 
     <EditText
         android:id="@+id/searchBar"

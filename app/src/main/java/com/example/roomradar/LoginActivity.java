@@ -1,6 +1,7 @@
 package com.example.roomradar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputType;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText password;
     private TextInputEditText email;
     private TextView forgotPassword;
+    private Button registerAsTenantButton;
     private Button login;
     private FirebaseAuth auth;
 
@@ -86,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
         email = (TextInputEditText) findViewById(R.id.emailLoginInput);
         password = (TextInputEditText) findViewById(R.id.passwordLoginInput);
 
+        registerAsTenantButton = (Button) findViewById(R.id.registerAsTenantButton);
+
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         login = (Button) findViewById(R.id.loginButton);
 
@@ -119,6 +123,14 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
                 return false;
+            }
+        });
+
+        registerAsTenantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
