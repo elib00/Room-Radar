@@ -40,6 +40,11 @@ public class DatabaseManager {
     }
 
     public static void validateUser(Activity activity, FirebaseAuth auth, String email, String password){
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(activity, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -71,7 +76,7 @@ public class DatabaseManager {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(activity, "Login unsuccessful. Please enter valid credentials.", Toast.LENGTH_SHORT);
+                        Toast.makeText(activity, "Login unsuccessful. Please enter valid credentials.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

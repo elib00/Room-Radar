@@ -8,4 +8,7 @@
     <string name="password_text">Password</string>
     <string name="forgot_password_text">Forgot password?</string>
     <string name="login_button_text">Log In</string>
+    <string name="register1_text">Register as Tenant</string>
+    <string name="register2_text">Register as Landlord</string>
+    <string name="no_account_text">Don\'t have an account?</string>
 </resources>
