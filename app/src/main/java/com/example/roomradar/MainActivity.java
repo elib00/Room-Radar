@@ -1,5 +1,6 @@
 package com.example.roomradar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -25,7 +26,50 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         initializeView();
+    }
 
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true); // Move the task to the background instead of exiting
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save your app state here
+        // Example: outState.putString("key", value);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore your app state here
+        // Example: String value = savedInstanceState.getString("key");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Save any data that needs to be saved
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Restore any data that needs to be restored
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Save any data that needs to be saved
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Restore any data that needs to be restored
     }
 
     private void initializeView(){
