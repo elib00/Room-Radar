@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#FFFDFD"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context=".RegisterActivity">
@@ -42,8 +43,8 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameSignUpTenantInput"
-                android:layout_width="370dp"
+                android:id="@+id/firstnameSignUpTenantInput"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:drawableStart="@drawable/profile_icon2"
@@ -51,9 +52,29 @@
                 android:imeOptions="actionDone"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text="Name" />
+                android:text="@string/firstname_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastnameSignUpTenantInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/profile_icon2"
+                android:drawablePadding="10dp"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/lastname_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -62,17 +83,18 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailSignUpTenantInput"
-                android:layout_width="367dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:drawableStart="@drawable/email_icon"
                 android:drawablePadding="10dp"
-                android:hint="@string/email_text"
                 android:imeOptions="actionDone"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="@string/email_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -81,15 +103,16 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordSignUpTenantInput"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableLeft="@drawable/lock_icon"
+                android:drawableStart="@drawable/lock_icon"
                 android:drawablePadding="10dp"
-                android:hint="@string/password_text"
                 android:imeOptions="actionDone"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="@string/password_text" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

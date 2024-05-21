@@ -70,8 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#080F39"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/featured_room_placeholder" />
+                    android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="200dp"
@@ -84,8 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#080F39"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/featured_room_placeholder" />
+                    android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="200dp"
@@ -98,8 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#080F39"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/featured_room_placeholder" />
+                    android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
 
             <!-- Add more CardViews for other featured rooms as needed -->
@@ -156,8 +153,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginEnd="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/nearby_room_placeholder" />
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -188,7 +184,7 @@
                         android:layout_height="100dp"
                         android:layout_marginEnd="8dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/nearby_room_placeholder" />
+                 />
 
                     <TextView
                         android:layout_width="0dp"
@@ -219,7 +215,7 @@
                         android:layout_height="100dp"
                         android:layout_marginEnd="8dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/nearby_room_placeholder" />
+                       />
 
                     <TextView
                         android:layout_width="0dp"
@@ -250,7 +246,7 @@
                         android:layout_height="100dp"
                         android:layout_marginEnd="8dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/nearby_room_placeholder" />
+                       />
 
                     <TextView
                         android:layout_width="0dp"
